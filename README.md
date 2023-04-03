@@ -41,3 +41,25 @@ https://getbootstrap.com/
 ```
 https://www.w3schools.com/icons/fontawesome_icons_intro.asp
 ```
+
+## Crear componentes
+```
+ng g c registro
+```
+## Popup
+```
+npm i ng-angular-popup --force
+```
+##  Confirm-box 
+```
+ npm i ng-confirm-box --force
+ ```
+ * app.module.ts
+ ``` 
+import { NgToastModule } from 'ng-angular-popup';
+
+imports: [
+     NgToastModule
+  ],
+```
+
