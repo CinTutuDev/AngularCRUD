@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # GYMAngularCRUD
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.0.
@@ -26,7 +26,7 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
-=======
+
 # AngularCRUD
 Proyecto con Angular15/ MateriaUI/componentes/Json-Server"App de registros de ususarios para GYM"
 ## Creo el nuevo proyecto scss:
@@ -69,4 +69,3 @@ https://getbootstrap.com/
 ```
 https://www.w3schools.com/icons/fontawesome_icons_intro.asp
 ```
->>>>>>> b69dc6520e793cd56d6b9f5c28dd65e26c551329
