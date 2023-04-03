@@ -29,3 +29,7 @@ https://material.angular.io/guide/schematics
 ```
 https://getbootstrap.com/
 ```
+* ICONS
+```
+https://www.w3schools.com/icons/fontawesome_icons_intro.asp
+```
