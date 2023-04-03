@@ -50,16 +50,25 @@ ng g c registro
 ```
 npm i ng-angular-popup --force
 ```
-##  Confirm-box 
-```
- npm i ng-confirm-box --force
- ```
  * app.module.ts
  ``` 
 import { NgToastModule } from 'ng-angular-popup';
 
 imports: [
      NgToastModule
+  ],
+```
+
+##  Confirm-box 
+```
+ npm i ng-confirm-box --force
+ ```
+ * app.module.ts
+ ``` 
+import { NgConfirmModule } from 'ng-confirm-box';
+
+  imports: [
+    NgConfirmModule
   ],
 ```
 
