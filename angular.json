@@ -17,6 +17,9 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "stylePreprocessorOptions": {
+              "includePaths": ["node_modules"]
+          },
             "outputPath": "dist/gymangular-crud",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -34,6 +37,7 @@
               "src/styles.scss"
             ],
             "scripts": []
+
           },
           "configurations": {
             "production": {
