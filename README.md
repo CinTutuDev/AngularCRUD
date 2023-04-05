@@ -71,4 +71,32 @@ import { NgConfirmModule } from 'ng-confirm-box';
     NgConfirmModule
   ],
 ```
+## 👀Errores❗ al levantar server
+* Fijarse bien en package.json:
+```
+"dependencies": {
+    "ng-angular-popup": "^0.2.0",
+    "ng-confirm-box": "^0.0.6",
+    ....}
+ "devDependencies": {
+    "sass": "^1.60.0",
+    "sass-loader": "^13.2.2",
+    "typescript": "~4.9.4",
+    "vuetify": "^2.5.1"
+  ...}
+  ```
+* Fijarse bien en angular.json si no está incluirlo:
+```
+  "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": { ...estas dos lines:
+           ✔ "stylePreprocessorOptions": {
+              "includePaths": ["node_modules"]❗
+          },
 
+            ó❗
+ "styles": [
+      "node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+              "src/styles.scss"
+            ],       
+```
