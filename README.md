@@ -44,7 +44,7 @@ https://www.w3schools.com/icons/fontawesome_icons_intro.asp
 
 ## Crear componentes
 ```
-ng g c registro
+ng g c registro --skip-tests
 ```
 ## Popup
 ```
