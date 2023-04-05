@@ -1,1 +1,57 @@
-<p>crear-registros works!</p>
+<div class="logo text-center">
+  <img width="200" src="assets\corredor.jpg" alt="" />
+</div>
+
+<div class="registro-form m-3 p-4">
+  <form>
+    <div class="row">
+      <div class="col-md-6">
+        <mat-form-field appearance="outline">
+          <mat-label>Nombre</mat-label>
+          <input matInput placeholder="Nombre" />
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        </mat-form-field>
+      </div>
+      <div class="col-md-6">
+        <mat-form-field appearance="outline">
+          <mat-label>Primer Apellido</mat-label>
+          <input matInput placeholder="Primer Apellido" />
+          <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        </mat-form-field>
+      </div>
+      <div class="col-md-6">
+       <mat-form-field appearance="outline">
+         <mat-label>Email</mat-label>
+         <input matInput placeholder="Email" />
+         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+       </mat-form-field>
+     </div>
+     <div class="col-md-6">
+       <mat-form-field appearance="outline">
+         <mat-label>Telefono Móvil</mat-label>
+         <input matInput placeholder="Telefono Móvil" />
+         <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+       </mat-form-field>
+     </div>
+     <div class="col-md-6">
+      <mat-form-field appearance="outline">
+        <mat-label>Peso</mat-label>
+        <input matInput placeholder="Peso" type="number" formControlName="peso" />
+        <mat-icon matSuffix>line_weight</mat-icon>
+        <mat-hint>Unidad en KGs</mat-hint>
+      </mat-form-field>
+    </div>
+    <div class="col-md-6">
+      <mat-form-field appearance="outline">
+        <mat-label>Altura</mat-label>
+        <input matInput placeholder="Altura" type="number" formControlName="altura"  />
+        <mat-icon matSuffix><i class="fa fa-text-height" aria-hidden="true"></i></mat-icon>
+        <mat-hint>Unidad en metros</mat-hint>
+      </mat-form-field>
+    </div>
+    <div class="col-md-6">
+     
+    </div>
+    </div>
+  </form>
+</div>
