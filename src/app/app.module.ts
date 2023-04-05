@@ -11,6 +11,10 @@ import { ListaRegistrosComponent } from './lista-registros/lista-registros.compo
 //Instalados ...npm i...
 import { NgToastModule } from 'ng-angular-popup';
 import { NgConfirmModule } from 'ng-confirm-box';
+//A/Material
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,6 +26,10 @@ import { NgConfirmModule } from 'ng-confirm-box';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    //A/Material
+    MatToolbarModule,
+    MatIconModule,
+    MatButtonModule,
     //Instalados 
     NgToastModule,
     NgConfirmModule
