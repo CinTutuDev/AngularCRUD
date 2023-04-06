@@ -110,6 +110,33 @@
           </mat-select>
         </mat-form-field>
       </div>
+      <div class="col-md-6 mt-4">
+        <label id="example-radio-group-label"
+          >¿Has estado en el gimnasio antes?</label
+        >
+        <mat-radio-group class="example-radio-group">
+          <mat-radio-button
+            class="example-radio-button"
+            *ngFor="let estadoGym of ['Yes', 'No']"
+            [value]="estadoGym"
+          >
+            {{ estadoGym }}
+          </mat-radio-button>
+        </mat-radio-group>
+        <div>La opción seleccionada es:</div>
+      </div>
+      <div class="col-md-6">
+        <mat-form-field appearance="outline">
+          <mat-label>Consulta una fecha</mat-label>
+          <input matInput [matDatepicker]="picker" />
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle
+            matIconSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
     </div>
   </form>
 </div>
