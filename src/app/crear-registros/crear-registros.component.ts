@@ -1,11 +1,12 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-crear-registros',
   templateUrl: './crear-registros.component.html',
   styleUrls: ['./crear-registros.component.scss'],
 })
-export class CrearRegistrosComponent {
+export class CrearRegistrosComponent implements OnInit{
   public packs: string[] = ['mensual', 'trimestral', 'anual'];
   public genero: string[] = ['Mujer', 'Hombre'];
   public listaImpo: string[] = [
@@ -16,4 +17,29 @@ export class CrearRegistrosComponent {
     'cuerpo con antojo de azúcar',
     'Fitness'
   ];
+
+  public resgistroForm! : FormGroup;
+
+  constructor(private formBuilder: FormBuilder){
+
+  }
+  ngOnInit(): void {
+   this.resgistroForm = this.formBuilder.group({
+      nombre: [''],
+      apellidos: [''],
+      email: [''],
+      movil: [''],
+      peso: [''],
+      altura: [''],
+      bmi: [''],
+      bmiResult: [''],
+      genero: [''],
+      requierirEntrenador: [''],
+      paquete: [''],
+      listaImport: [''],
+      GymAntes: [''],
+      consultaFecha:['']
+   })
+  }
+
 }
