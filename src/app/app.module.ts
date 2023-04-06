@@ -21,17 +21,20 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatSelectModule} from '@angular/material/select';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { ReactiveFormsModule } from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
     CrearRegistrosComponent,
     DetallesUserComponent,
-    ListaRegistrosComponent
+    ListaRegistrosComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+     /* [formGroup]="resgistroForm" */
+    ReactiveFormsModule,
     //A/Material
     MatToolbarModule,
     MatIconModule,

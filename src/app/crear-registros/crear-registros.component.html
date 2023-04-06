@@ -3,33 +3,41 @@
 </div>
 
 <div class="registro-form m-3 p-4">
-  <form>
+  <form [formGroup]="resgistroForm">
     <div class="row">
       <div class="col-md-6">
         <mat-form-field appearance="outline">
           <mat-label>Nombre</mat-label>
-          <input matInput placeholder="Nombre" />
+          <input formControlName="nombre" matInput placeholder="Nombre" />
           <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
         </mat-form-field>
       </div>
       <div class="col-md-6">
         <mat-form-field appearance="outline">
           <mat-label>Primer Apellido</mat-label>
-          <input matInput placeholder="Primer Apellido" />
+          <input
+            formControlName="apellidos"
+            matInput
+            placeholder="Primer Apellido"
+          />
           <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
         </mat-form-field>
       </div>
       <div class="col-md-6">
         <mat-form-field appearance="outline">
           <mat-label>Email</mat-label>
-          <input matInput placeholder="Email" />
+          <input formControlName="email" matInput placeholder="Email" />
           <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
         </mat-form-field>
       </div>
       <div class="col-md-6">
         <mat-form-field appearance="outline">
           <mat-label>Telefono Móvil</mat-label>
-          <input matInput placeholder="Telefono Móvil" />
+          <input
+            formControlName="movil"
+            matInput
+            placeholder="Telefono Móvil"
+          />
           <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
         </mat-form-field>
       </div>
@@ -37,6 +45,7 @@
         <mat-form-field appearance="outline">
           <mat-label>Peso</mat-label>
           <input
+            formControlName="peso"
             matInput
             placeholder="Peso"
             type="number"
@@ -50,6 +59,7 @@
         <mat-form-field appearance="outline">
           <mat-label>Altura</mat-label>
           <input
+            formControlName="altura"
             matInput
             placeholder="Altura"
             type="number"
@@ -66,6 +76,7 @@
         <label id="example-radio-group-label">¿Necesitas entrenador/a?</label>
         <mat-radio-group class="example-radio-group">
           <mat-radio-button
+            formControlName="requierirEntrenador"
             class="example-radio-button"
             *ngFor="let entrenadorOpt of ['Yes', 'No']"
             [value]="entrenadorOpt"
@@ -79,6 +90,7 @@
         <label id="example-radio-group-label">Género</label>
         <mat-radio-group class="example-radio-group">
           <mat-radio-button
+            formControlName="genero"
             class="example-radio-button"
             *ngFor="let generoOpt of genero"
             [value]="generoOpt"
@@ -91,7 +103,7 @@
       <div class="col-md-6 mt-4">
         <mat-form-field appearance="outline">
           <mat-label>Selecciona paquete</mat-label>
-          <mat-select>
+          <mat-select formControlName="paquete">
             <mat-option *ngFor="let pack of packs" [value]="pack">
               {{ pack }}
             </mat-option>
@@ -103,7 +115,7 @@
           <mat-label
             >¿Cuál de los siguientes es importante para usted?</mat-label
           >
-          <mat-select multiple>
+          <mat-select formControlName="listaImport" multiple>
             <mat-option *ngFor="let lista of listaImpo" [value]="lista">
               {{ lista }}
             </mat-option>
@@ -116,6 +128,7 @@
         >
         <mat-radio-group class="example-radio-group">
           <mat-radio-button
+            formControlName="GymAntes"
             class="example-radio-button"
             *ngFor="let estadoGym of ['Yes', 'No']"
             [value]="estadoGym"
@@ -128,7 +141,11 @@
       <div class="col-md-6">
         <mat-form-field appearance="outline">
           <mat-label>Consulta una fecha</mat-label>
-          <input matInput [matDatepicker]="picker" />
+          <input
+            formControlName="consultaFecha"
+            matInput
+            [matDatepicker]="picker"
+          />
           <mat-hint>MM/DD/YYYY</mat-hint>
           <mat-datepicker-toggle
             matIconSuffix
