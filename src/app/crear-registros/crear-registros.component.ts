@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ApiService } from '../services/api.service';
+import { NgToastService } from 'ng-angular-popup';
 
 @Component({
   selector: 'app-crear-registros',
@@ -21,8 +23,12 @@ export class CrearRegistrosComponent implements OnInit {
     'Fitness',
   ];
 
-  constructor(private formBuilder: FormBuilder) {}
-  ngOnInit() : void{
+  constructor(
+    private formBuilder: FormBuilder,
+    private api: ApiService,
+    private toastService: NgToastService
+  ) {}
+  ngOnInit(): void {
     this.resgistroForm = this.formBuilder.group({
       nombre: [''],
       apellidos: [''],
@@ -39,7 +45,7 @@ export class CrearRegistrosComponent implements OnInit {
       GymAntes: [''],
       consultaFecha: [''],
     });
-    this.resgistroForm.controls['altura'].valueChanges.subscribe(res => {
+    this.resgistroForm.controls['altura'].valueChanges.subscribe((res) => {
       this.calculateBmi(res);
     });
   }
@@ -54,45 +60,35 @@ export class CrearRegistrosComponent implements OnInit {
       return;
     }
 
-    // display form values on success
-    /*   alert(
-      'SUCCESS!! :-)\n\n' + JSON.stringify(this.resgistroForm.value, null, 4)
-    ); */
+    this.api.postRegistro(this.resgistroForm.value).subscribe((res) => {
+      this.toastService.success({
+        detail: 'Success',
+        summary: 'consulta añadida',
+        duration: 3000,
+      });
+      this.resgistroForm.reset();
+    });
+
     console.log(
       'SUCCESS!! :-)\n\n' + JSON.stringify(this.resgistroForm.value, null, 4)
     );
     const regitro = this.resgistroForm.value;
     console.log(regitro);
   }
-
+  /* submit() {
+    this.api.postRegistro(this.resgistroForm.value).subscribe((res) => {
+      this.toastService.success({
+        detail: 'Success',
+        summary: 'consulta añadida',
+        duration: 3000,
+      });
+      this.resgistroForm.reset();
+    });
+  } */
   onReset() {
     this.submitted = false;
     this.resgistroForm.reset(this.resgistroForm.value);
   }
-
- /*  calcularBMI(alturaVAl: number) {
-    const peso = this.resgistroForm.value.altura;
-    const altura = alturaVAl;
-    const bmi = peso / (altura * altura);
-    this.resgistroForm.controls['bmi'].patchValue(bmi);
-    switch (true) {
-      case bmi < 18.5:
-        this.resgistroForm.controls['bmiResult'].patchValue('Bajo peso');
-        break;
-
-      case( bmi >= 18.5 && bmi < 25):
-        this.resgistroForm.controls['bmiResult'].patchValue('Peso normal');
-        break;
-
-      case ( bmi >= 25 && bmi < 30):
-        this.resgistroForm.controls['bmiResult'].patchValue('Sobrepeso');
-        break;
-
-      default:
-        this.resgistroForm.controls['bmiResult'].patchValue('Obeso/a');
-        break;
-    }
-  } */
 
   calculateBmi(value: number) {
     const weight = this.resgistroForm.value.peso; // weight in kilograms
@@ -103,10 +99,10 @@ export class CrearRegistrosComponent implements OnInit {
       case bmi < 18.5:
         this.resgistroForm.controls['bmiResult'].patchValue('Bajo peso');
         break;
-      case (bmi >= 18.5 && bmi < 25):
+      case bmi >= 18.5 && bmi < 25:
         this.resgistroForm.controls['bmiResult'].patchValue('Peso normal');
         break;
-      case (bmi >= 25 && bmi < 30):
+      case bmi >= 25 && bmi < 30:
         this.resgistroForm.controls['bmiResult'].patchValue('Sobrepeso');
         break;
 

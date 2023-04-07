@@ -1,6 +1,42 @@
 {
   "consulta": [
-  
+    {
+      "nombre": "",
+      "apellidos": "",
+      "email": "",
+      "movil": "",
+      "peso": "",
+      "altura": "",
+      "bmi": "",
+      "bmiResult": "",
+      "genero": "",
+      "requierirEntrenador": "",
+      "paquete": "",
+      "listaImport": "",
+      "GymAntes": "",
+      "consultaFecha": "",
+      "id": 1
+    },
+    {
+      "nombre": "cinta",
+      "apellidos": "Tafur Cerrejón",
+      "email": "cinta@gmail.com",
+      "movil": "665828070",
+      "peso": 58,
+      "altura": 158,
+      "bmi": 0.002323345617689473,
+      "bmiResult": "Bajo peso",
+      "genero": "Mujer",
+      "requierirEntrenador": "Yes",
+      "paquete": "trimestral",
+      "listaImport": [
+        "Energía y resistencia",
+        "Construyendo músculo magro",
+        "sistema digestivo más sano"
+      ],
+      "GymAntes": "Yes",
+      "consultaFecha": "2023-04-25T22:00:00.000Z",
+      "id": 2
+    }
   ]
-  
 }
