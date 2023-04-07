@@ -113,3 +113,7 @@ import { NgConfirmModule } from 'ng-confirm-box';
  ```
   json-server --watch db.json
  ```
+* Ir a:
+```
+http://localhost:3000/posts
+```
