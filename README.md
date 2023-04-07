@@ -117,3 +117,7 @@ import { NgConfirmModule } from 'ng-confirm-box';
 ```
 http://localhost:3000/posts
 ```
+* Servicio
+```
+ ng g s services/api --skip-tests
+ ```
