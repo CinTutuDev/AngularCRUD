@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'GYMAngularCRUD';
+
+  hola(){
+    console.log('Hola Mundo');
+  }
 }
