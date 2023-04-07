@@ -2,14 +2,19 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ApiService } from '../services/api.service';
 import { NgToastService } from 'ng-angular-popup';
-
+import { ActivatedRoute, Router } from '@angular/router';
+import { User } from '../models/user.models';
 @Component({
   selector: 'app-crear-registros',
   templateUrl: './crear-registros.component.html',
   styleUrls: ['./crear-registros.component.scss'],
 })
 export class CrearRegistrosComponent implements OnInit {
+  
+  selectedGender!: string;
   public resgistroForm!: FormGroup;
+  public userIdBorrarDate!: number;
+  public isUpdateActive: boolean = false;
   submitted = false;
 
   public packs: string[] = ['mensual', 'trimestral', 'anual'];
@@ -26,7 +31,9 @@ export class CrearRegistrosComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private api: ApiService,
-    private toastService: NgToastService
+    private toastService: NgToastService,
+    private activateRoute: ActivatedRoute,
+    private router: Router
   ) {}
   ngOnInit(): void {
     this.resgistroForm = this.formBuilder.group({
@@ -48,19 +55,46 @@ export class CrearRegistrosComponent implements OnInit {
     this.resgistroForm.controls['altura'].valueChanges.subscribe((res) => {
       this.calculateBmi(res);
     });
-  }
-  get f() {
-    return this.resgistroForm.controls;
-  }
-  onSubmit() {
-    this.submitted = true;
 
-    // stop here if form is invalid
-    if (this.resgistroForm.invalid) {
-      return;
-    }
+    this.activateRoute.params.subscribe(val => {
+      this.userIdBorrarDate = val['id'];
+      if (this.userIdBorrarDate) {
+        this.isUpdateActive = true;
+        this.api.getRegisteredUserId(this.userIdBorrarDate)
+          .subscribe({
+            next: (res) => {
+              this.llenarFormularioParaActualizar(res);
+            },
+            error: (err) => {
+              console.log(err);
+            }
+          })
+      }
+    })
+  }
 
-    this.api.postRegistro(this.resgistroForm.value).subscribe((res) => {
+
+
+  llenarFormularioParaActualizar(user: User) {
+    this.resgistroForm.setValue({
+      nombre: user.nombre,
+      apellidos: user.apellidos,
+      email: user.email,
+      movil: user.movil,
+      peso: user.peso,
+      altura: user.altura,
+      bmi: user.bmi,
+      bmiResult: user.bmiResult,
+      genero: user.genero,
+      requierirEntrenador: user.requierirEntrenador,
+      paquete: user.paquete,
+      listaImport: user.listaImport,
+      GymAntes: user.GymAntes,
+      consultaFecha: user.consultaFecha,
+    });
+  }
+  submit() {
+    this.api.postRegistration(this.resgistroForm.value).subscribe((res) => {
       this.toastService.success({
         detail: 'Success',
         summary: 'consulta añadida',
@@ -68,26 +102,15 @@ export class CrearRegistrosComponent implements OnInit {
       });
       this.resgistroForm.reset();
     });
-
-    console.log(
-      'SUCCESS!! :-)\n\n' + JSON.stringify(this.resgistroForm.value, null, 4)
-    );
-    const regitro = this.resgistroForm.value;
-    console.log(regitro);
   }
-  /* submit() {
-    this.api.postRegistro(this.resgistroForm.value).subscribe((res) => {
-      this.toastService.success({
-        detail: 'Success',
-        summary: 'consulta añadida',
-        duration: 3000,
-      });
-      this.resgistroForm.reset();
-    });
-  } */
-  onReset() {
-    this.submitted = false;
-    this.resgistroForm.reset(this.resgistroForm.value);
+
+  update() {
+  this.api.updateRegisterUser(this.resgistroForm.value, this.userIdBorrarDate)
+      .subscribe(res => {
+        this.toastService.success({ detail: 'SUCCESS', summary: 'Detalles del usuario actualizados con éxito', duration: 3000 });
+        this.router.navigate(['lista']);
+        this.resgistroForm.reset();
+      }); 
   }
 
   calculateBmi(value: number) {
@@ -111,4 +134,5 @@ export class CrearRegistrosComponent implements OnInit {
         break;
     }
   }
+
 }

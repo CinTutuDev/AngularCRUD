@@ -6,27 +6,28 @@ import { User } from '../models/user.models';
   providedIn: 'root',
 })
 export class ApiService {
-  private URL: string = 'http://localhost:3000/consulta';
+  private baseUrl: string = 'http://localhost:3000/consulta';
 
   constructor(private http: HttpClient) {}
 
-  postRegistro(registerObj: User) {
-    return this.http.post<User>(`${this.URL}`, registerObj);
+  postRegistration(registerObj: User) {
+    return this.http.post<User>(`${this.baseUrl}`, registerObj)
   }
 
-  conseguirRegistroUser() {
-    return this.http.get<User[]>(`${this.URL}`);
+  getRegisteredUser() {
+    return this.http.get<User[]>(`${this.baseUrl}`)
   }
 
-  actualizarRegistroUser(registerObj: User, id: number) {
-    return this.http.put<User>(`${this.URL}/${id}`, registerObj);
+  updateRegisterUser(registerObj: User, id: number) {
+    return this.http.put<User>(`${this.baseUrl}/${id}`, registerObj)
   }
 
-  borrarRegistro(id: number) {
-    return this.http.delete<User>(`${this.URL}/${id}`);
+  deleteRegistered(id: number) {
+    return this.http.delete<User>(`${this.baseUrl}/${id}`)
   }
 
-  coseguirRegistroIdUser(id: number) {
-    return this.http.get<User>(`${this.URL}/${id}`);
+  getRegisteredUserId(id: number) {
+    return this.http.get<User>(`${this.baseUrl}/${id}`)
   }
+
 }

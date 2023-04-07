@@ -1,12 +1,15 @@
 <mat-toolbar color="primary">
   <h1>Registro GYM TuTu´s</h1>
   <span class="example-spacer"></span>
-  <!--  <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-   <mat-icon>favorite</mat-icon>
- </button> -->
-  <button mat-raised-button color="accent" (click)="hola">Ver consultas</button>
+
+  <button routerLink="/lista" mat-raised-button color="accent" (click)="hola">Ver consultas</button>
 </mat-toolbar>
 
 <div class="container mt-4">
   <router-outlet></router-outlet>
 </div>
+
+
+
+<lib-ng-toast></lib-ng-toast>
+<ng-confirm></ng-confirm>
