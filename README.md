@@ -104,3 +104,12 @@ import { NgConfirmModule } from 'ng-confirm-box';
               "src/styles.scss"
             ],       
 ```
+## Crear JSON Server
+* Installer
+```
+ npm i -g json-server
+ ```
+ * Crear db.json
+ ```
+  json-server --watch db.json
+ ```
