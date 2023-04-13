@@ -52,18 +52,24 @@
       </div>
     </mat-list-item>
 
-    <mat-list-item>
+ 
      <div matLine>
-      Objetivos:
-       <button mat-button>
-        <mat-chip-listbox>
-          <ng-container  *ngFor="let  lista of usuarioDetalles.listaImport">
-             <mat-chip-option>{{ lista }}</mat-chip-option>
-           </ng-container>
+      Objetivos: </div>
+       <div class="objetivos text-center">
+      
+          <ng-container >
+           <mat-chip-listbox class="mat-mdc-chip-set-stacked" aria-label="Color selection">
+            <mat-chip-option  *ngFor="let  lista of usuarioDetalles.listaImport" selected >
+              {{lista}}
+            </mat-chip-option>
           </mat-chip-listbox>
-       </button>
-     </div>
-   </mat-list-item>
+           </ng-container>
+    
+          </div>
+    
+  
+
+   
 
    </mat-list>
   </mat-card-content>
