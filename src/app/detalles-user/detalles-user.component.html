@@ -9,69 +9,65 @@
   </mat-card-header>
 
   <mat-card-content>
-   <mat-list>
-    <mat-list-item>
-      <div matLine>
-        Número de telefono:
-        <button mat-button>{{ usuarioDetalles.movil }}</button>
-      </div>
-    </mat-list-item>
+    <mat-list>
+      <mat-list-item>
+        <div matLine>
+          Número de telefono:
+          <button mat-button>{{ usuarioDetalles.movil }}</button>
+        </div>
+      </mat-list-item>
 
-    <mat-list-item>
-      <div matLine>
-        Genero
-        <button mat-button>{{ usuarioDetalles.genero }}</button>
-      </div>
-    </mat-list-item>
+      <mat-list-item>
+        <div matLine>
+          Genero
+          <button mat-button>{{ usuarioDetalles.genero }}</button>
+        </div>
+      </mat-list-item>
 
-    <mat-list-item>
-      <div matLine>
-        Paquete
-        <button mat-button>{{ usuarioDetalles.paquete }}</button>
-      </div>
-    </mat-list-item>
+      <mat-list-item>
+        <div matLine>
+          Paquete
+          <button mat-button>{{ usuarioDetalles.paquete }}</button>
+        </div>
+      </mat-list-item>
 
-    <mat-list-item>
-      <div matLine>
-        IMC:
-        <button mat-button>{{ usuarioDetalles.bmi }}</button>
-      </div>
-    </mat-list-item>
+      <mat-list-item>
+        <div matLine>
+          IMC:
+          <button mat-button>{{ usuarioDetalles.bmi }}</button>
+        </div>
+      </mat-list-item>
 
-    <mat-list-item>
-      <div matLine>
-        Resultado de IMC :
-        <button mat-button>{{ usuarioDetalles.bmiResult }}</button>
-      </div>
-    </mat-list-item>
+      <mat-list-item>
+        <div matLine>
+          Resultado de IMC :
+          <button mat-button>{{ usuarioDetalles.bmiResult }}</button>
+        </div>
+      </mat-list-item>
 
-    <mat-list-item>
-      <div matLine>
-        Entrenador:
-        <button mat-button>{{ usuarioDetalles.requierirEntrenador }}</button>
-      </div>
-    </mat-list-item>
+      <mat-list-item>
+        <div matLine>
+          Entrenador:
+          <button mat-button>{{ usuarioDetalles.requierirEntrenador }}</button>
+        </div>
+      </mat-list-item>
 
- 
-     <div matLine>
-      Objetivos: </div>
-       <div class="objetivos text-center">
-      
-          <ng-container >
-           <mat-chip-listbox class="mat-mdc-chip-set-stacked" aria-label="Color selection">
-            <mat-chip-option  *ngFor="let  lista of usuarioDetalles.listaImport" selected >
-              {{lista}}
+      <div matLine>Objetivos:</div>
+      <div class="objetivos text-center">
+        <ng-container>
+          <mat-chip-listbox
+            class="mat-mdc-chip-set-stacked"
+            aria-label="Color selection"
+          >
+            <mat-chip-option
+              *ngFor="let lista of usuarioDetalles.listaImport"
+              selected
+            >
+              {{ lista }}
             </mat-chip-option>
           </mat-chip-listbox>
-           </ng-container>
-    
-          </div>
-    
-  
-
-   
-
-   </mat-list>
+        </ng-container>
+      </div>
+    </mat-list>
   </mat-card-content>
-
 </mat-card>
