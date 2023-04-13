@@ -19,6 +19,27 @@
       "tieneGymAntes": "Yes",
       "consultaFecha": "2023-04-14T22:00:00.000Z",
       "id": 1
+    },
+    {
+      "nombre": "pepe",
+      "apellidos": "Pompo",
+      "email": "pepe@montecastelo.com",
+      "movil": 666887744,
+      "peso": 120,
+      "altura": 1.82,
+      "bmi": 36.22750875498128,
+      "bmiResult": "Obeso/a",
+      "genero": "Hombre",
+      "requierirEntrenador": "Yes",
+      "paquete": "mensual",
+      "listaImport": [
+        "Construyendo músculo magro",
+        "sistema digestivo más sano",
+        "cuerpo con antojo de azúcar"
+      ],
+      "tieneGymAntes": "Yes",
+      "consultaFecha": "2023-04-12T22:00:00.000Z",
+      "id": 2
     }
   ]
 }

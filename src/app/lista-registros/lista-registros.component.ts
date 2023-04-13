@@ -43,13 +43,13 @@ export class ListaRegistrosComponent implements OnInit {
   }
 
 
-  edit(id: number) {
+  editar(id: number) {
     this.router.navigate(['update', id])
   }
 
   
-  deleteUser(id: number) {
-    this.confirmService.showConfirm("Are you sure want to Delete?",
+  borrarUser(id: number) {
+    this.confirmService.showConfirm("¿Estás seguro de que quieres eliminar?",
       () => {
         //your logic if Yes clicked
         this.api.deleteRegistered(id)
@@ -70,7 +70,7 @@ export class ListaRegistrosComponent implements OnInit {
   }
 
 
-  applyFilter(event: Event) {
+  aplicarFiltro(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
 
