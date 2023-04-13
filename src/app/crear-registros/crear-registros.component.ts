@@ -10,16 +10,10 @@ import { User } from '../models/user.models';
   styleUrls: ['./crear-registros.component.scss'],
 })
 export class CrearRegistrosComponent implements OnInit {
-  
   selectedGender!: string;
-  public resgistroForm!: FormGroup;
-  public userIdBorrarDate!: number;
-  public isUpdateActive: boolean = false;
-  submitted = false;
-
-  public packs: string[] = ['mensual', 'trimestral', 'anual'];
-  public genero: string[] = ['Mujer', 'Hombre'];
-  public listaImpo: string[] = [
+  generos: string[] = ['Mujer', 'Hombre'];
+  packs: string[] = ['mensual', 'trimestral', 'anual'];
+  listaImpo: string[] = [
     'Reducción de grasas tóxicas',
     'Energía y resistencia',
     'Construyendo músculo magro',
@@ -27,6 +21,9 @@ export class CrearRegistrosComponent implements OnInit {
     'cuerpo con antojo de azúcar',
     'Fitness',
   ];
+  resgistroForm!: FormGroup;
+  public userIdBorrarDate!: number;
+  public isUpdateActive: boolean = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -35,6 +32,7 @@ export class CrearRegistrosComponent implements OnInit {
     private activateRoute: ActivatedRoute,
     private router: Router
   ) {}
+
   ngOnInit(): void {
     this.resgistroForm = this.formBuilder.group({
       nombre: [''],
@@ -49,31 +47,28 @@ export class CrearRegistrosComponent implements OnInit {
       requierirEntrenador: [''],
       paquete: [''],
       listaImport: [''],
-      GymAntes: [''],
+      tieneGymAntes: [''],
       consultaFecha: [''],
     });
     this.resgistroForm.controls['altura'].valueChanges.subscribe((res) => {
       this.calculateBmi(res);
     });
 
-    this.activateRoute.params.subscribe(val => {
+    this.activateRoute.params.subscribe((val) => {
       this.userIdBorrarDate = val['id'];
       if (this.userIdBorrarDate) {
         this.isUpdateActive = true;
-        this.api.getRegisteredUserId(this.userIdBorrarDate)
-          .subscribe({
-            next: (res) => {
-              this.llenarFormularioParaActualizar(res);
-            },
-            error: (err) => {
-              console.log(err);
-            }
-          })
+        this.api.getRegisteredUserId(this.userIdBorrarDate).subscribe({
+          next: (res) => {
+            this.llenarFormularioParaActualizar(res);
+          },
+          error: (err) => {
+            console.log(err);
+          },
+        });
       }
-    })
+    });
   }
-
-
 
   llenarFormularioParaActualizar(user: User) {
     this.resgistroForm.setValue({
@@ -89,7 +84,7 @@ export class CrearRegistrosComponent implements OnInit {
       requierirEntrenador: user.requierirEntrenador,
       paquete: user.paquete,
       listaImport: user.listaImport,
-      GymAntes: user.GymAntes,
+      tieneGymAntes: user.GymAntes,
       consultaFecha: user.consultaFecha,
     });
   }
@@ -105,18 +100,24 @@ export class CrearRegistrosComponent implements OnInit {
   }
 
   update() {
-  this.api.updateRegisterUser(this.resgistroForm.value, this.userIdBorrarDate)
-      .subscribe(res => {
-        this.toastService.success({ detail: 'SUCCESS', summary: 'Detalles del usuario actualizados con éxito', duration: 3000 });
+    this.api
+      .updateRegisterUser(this.resgistroForm.value, this.userIdBorrarDate)
+      .subscribe((res) => {
+        this.toastService.success({
+          detail: 'SUCCESS',
+          summary: 'Detalles del usuario actualizados con éxito',
+          duration: 3000,
+        });
         this.router.navigate(['lista']);
         this.resgistroForm.reset();
-      }); 
+      });
   }
 
+
   calculateBmi(value: number) {
-    const weight = this.resgistroForm.value.peso; // weight in kilograms
-    const height = value; // height in meters
-    const bmi = weight / (height * height);
+    const peso = this.resgistroForm.value.peso; // weight in kilograms
+    const altura = value; // height in meters
+    const bmi = peso / (altura * altura);
     this.resgistroForm.controls['bmi'].patchValue(bmi);
     switch (true) {
       case bmi < 18.5:
@@ -134,5 +135,4 @@ export class CrearRegistrosComponent implements OnInit {
         break;
     }
   }
-
 }

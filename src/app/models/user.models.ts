@@ -13,5 +13,5 @@ export class User {
   listaImport!: string[];
   GymAntes!: string;
   consultaFecha!: string;
-  id?: number;
+  id!: number;
 }

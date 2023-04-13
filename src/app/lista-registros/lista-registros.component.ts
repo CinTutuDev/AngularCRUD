@@ -1,10 +1,10 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
+import { User } from './../models/user.models';
+import { ApiService } from './../services/api.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 import { MatPaginator } from '@angular/material/paginator';
-import { User } from '../models/user.models';
-import { ApiService } from '../services/api.service';
-import {  ActivatedRoute, Router  } from '@angular/router';
+import { Router  } from '@angular/router';
 import { NgConfirmService } from 'ng-confirm-box';
 import { NgToastService } from 'ng-angular-popup';
 @Component({
@@ -19,23 +19,13 @@ export class ListaRegistrosComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  displayedColumns: string[] = [
-    'id',
-    'nombre',
-    'apellidos',
-    'email',
-    'movil',
-    'bmiResult',
-    'genero',
-    'paquete',
-    'consultaFecha',
-    'accion',
-  ];
+  displayedColumns: string[] = ['id', 'nombre', 'apellidos', 'email', 'movil', 'bmiResult', 'genero', 'paquete', 'consultaFecha', 'action'];
+
 
   constructor(private api: ApiService, private router: Router, private confirmService: NgConfirmService, private toastService: NgToastService) { }
 
   ngOnInit() {
-    this.getUsers;
+    this.getUsers();
   }
   getUsers() {
     this.api.getRegisteredUser()
@@ -54,7 +44,7 @@ export class ListaRegistrosComponent implements OnInit {
 
 
   edit(id: number) {
-    this.router.navigate(['borrar', id])
+    this.router.navigate(['update', id])
   }
 
   

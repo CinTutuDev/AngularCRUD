@@ -1,23 +1,6 @@
 {
   "consulta": [
     {
-      "nombre": "",
-      "apellidos": "",
-      "email": "",
-      "movil": "",
-      "peso": "",
-      "altura": "",
-      "bmi": "",
-      "bmiResult": "",
-      "genero": "",
-      "requierirEntrenador": "",
-      "paquete": "",
-      "listaImport": "",
-      "GymAntes": "",
-      "consultaFecha": "",
-      "id": 1
-    },
-    {
       "nombre": "cinta",
       "apellidos": "Tafur Cerrejón",
       "email": "cinta@gmail.com",
@@ -37,23 +20,6 @@
       "GymAntes": "Yes",
       "consultaFecha": "2023-04-25T22:00:00.000Z",
       "id": 2
-    },
-    {
-      "nombre": null,
-      "apellidos": null,
-      "email": null,
-      "movil": null,
-      "peso": null,
-      "altura": null,
-      "bmi": null,
-      "bmiResult": null,
-      "genero": null,
-      "requierirEntrenador": null,
-      "paquete": null,
-      "listaImport": null,
-      "GymAntes": null,
-      "consultaFecha": null,
-      "id": 3
     },
     {
       "nombre": "cinta",
@@ -115,40 +81,6 @@
       "id": 6
     },
     {
-      "nombre": "",
-      "apellidos": "",
-      "email": "",
-      "movil": "",
-      "peso": "",
-      "altura": "",
-      "bmi": "",
-      "bmiResult": "",
-      "genero": "",
-      "requierirEntrenador": "",
-      "paquete": "",
-      "listaImport": "",
-      "GymAntes": "",
-      "consultaFecha": "",
-      "id": 7
-    },
-    {
-      "nombre": "",
-      "apellidos": "",
-      "email": "",
-      "movil": "",
-      "peso": "",
-      "altura": "",
-      "bmi": "",
-      "bmiResult": "",
-      "genero": "",
-      "requierirEntrenador": "",
-      "paquete": "",
-      "listaImport": "",
-      "GymAntes": "",
-      "consultaFecha": "",
-      "id": 8
-    },
-    {
       "nombre": "CInta",
       "apellidos": "Tafur Cerrejón",
       "email": "keke@gmail.com",
@@ -201,6 +133,26 @@
       "GymAntes": "",
       "consultaFecha": "",
       "id": 11
+    },
+    {
+      "nombre": "Fernando",
+      "apellidos": "Pompo",
+      "email": "lolitacarapepita@montecastelo.com",
+      "movil": "666887744",
+      "peso": 58,
+      "altura": 1.58,
+      "bmi": 23.233456176894723,
+      "bmiResult": "Peso normal",
+      "genero": "Mujer",
+      "requierirEntrenador": "Yes",
+      "paquete": "trimestral",
+      "listaImport": [
+        "Reducción de grasas tóxicas",
+        "Construyendo músculo magro"
+      ],
+      "tieneGymAntes": "Yes",
+      "consultaFecha": "2023-04-12T22:00:00.000Z",
+      "id": 12
     }
   ]
 }
