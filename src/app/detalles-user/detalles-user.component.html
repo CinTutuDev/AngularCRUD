@@ -1,1 +1,71 @@
-<p>detalles-user works!</p>
+<mat-card *ngIf="usuarioDetalles" class="example-card text-center">
+  <mat-card-header class="justify-content-center">
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title
+      >{{ usuarioDetalles.nombre }}
+      {{ usuarioDetalles.apellidos }}</mat-card-title
+    >
+    <mat-card-subtitle>{{ usuarioDetalles.email }}</mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+   <mat-list>
+    <mat-list-item>
+      <div matLine>
+        Número de telefono:
+        <button mat-button>{{ usuarioDetalles.movil }}</button>
+      </div>
+    </mat-list-item>
+
+    <mat-list-item>
+      <div matLine>
+        Genero
+        <button mat-button>{{ usuarioDetalles.genero }}</button>
+      </div>
+    </mat-list-item>
+
+    <mat-list-item>
+      <div matLine>
+        Paquete
+        <button mat-button>{{ usuarioDetalles.paquete }}</button>
+      </div>
+    </mat-list-item>
+
+    <mat-list-item>
+      <div matLine>
+        IMC:
+        <button mat-button>{{ usuarioDetalles.bmi }}</button>
+      </div>
+    </mat-list-item>
+
+    <mat-list-item>
+      <div matLine>
+        Resultado de IMC :
+        <button mat-button>{{ usuarioDetalles.bmiResult }}</button>
+      </div>
+    </mat-list-item>
+
+    <mat-list-item>
+      <div matLine>
+        Entrenador:
+        <button mat-button>{{ usuarioDetalles.requierirEntrenador }}</button>
+      </div>
+    </mat-list-item>
+
+    <mat-list-item>
+     <div matLine>
+      Objetivos:
+       <button mat-button>
+        <mat-chip-listbox>
+          <ng-container  *ngFor="let  lista of usuarioDetalles.listaImport">
+             <mat-chip-option>{{ lista }}</mat-chip-option>
+           </ng-container>
+          </mat-chip-listbox>
+       </button>
+     </div>
+   </mat-list-item>
+
+   </mat-list>
+  </mat-card-content>
+
+</mat-card>
