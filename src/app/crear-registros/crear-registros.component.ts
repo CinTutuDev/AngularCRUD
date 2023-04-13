@@ -70,6 +70,30 @@ export class CrearRegistrosComponent implements OnInit {
     });
   }
 
+  submit() {
+    this.api.postRegistration(this.resgistroForm.value).subscribe((res) => {
+      this.toastService.success({
+        detail: 'Éxito',
+        summary: 'consulta añadida',
+        duration: 3000,
+      });
+      this.resgistroForm.reset();
+    });
+  }
+
+  update() {
+    this.api
+      .updateRegisterUser(this.resgistroForm.value, this.userIdBorrarDate)
+      .subscribe((res) => {
+        this.toastService.success({
+          detail: 'Éxito',
+          summary: 'Detalles del usuario actualizados con éxito',
+          duration: 3000,
+        });
+        this.router.navigate(['lista']);
+        this.resgistroForm.reset();
+      });
+  }
   llenarFormularioParaActualizar(user: User) {
     this.resgistroForm.setValue({
       nombre: user.nombre,
@@ -84,35 +108,10 @@ export class CrearRegistrosComponent implements OnInit {
       requierirEntrenador: user.requierirEntrenador,
       paquete: user.paquete,
       listaImport: user.listaImport,
-      tieneGymAntes: user.GymAntes,
+      tieneGymAntes: user.tieneGymAntes,
       consultaFecha: user.consultaFecha,
     });
   }
-  submit() {
-    this.api.postRegistration(this.resgistroForm.value).subscribe((res) => {
-      this.toastService.success({
-        detail: 'Success',
-        summary: 'consulta añadida',
-        duration: 3000,
-      });
-      this.resgistroForm.reset();
-    });
-  }
-
-  update() {
-    this.api
-      .updateRegisterUser(this.resgistroForm.value, this.userIdBorrarDate)
-      .subscribe((res) => {
-        this.toastService.success({
-          detail: 'SUCCESS',
-          summary: 'Detalles del usuario actualizados con éxito',
-          duration: 3000,
-        });
-        this.router.navigate(['lista']);
-        this.resgistroForm.reset();
-      });
-  }
-
 
   calculateBmi(value: number) {
     const peso = this.resgistroForm.value.peso; // weight in kilograms

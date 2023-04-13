@@ -11,7 +11,7 @@ export class User {
   requierirEntrenador!: string;
   paquete!: string;
   listaImport!: string[];
-  GymAntes!: string;
+  tieneGymAntes!: string;
   consultaFecha!: string;
   id!: number;
 }

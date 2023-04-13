@@ -9,7 +9,7 @@ const routes: Routes = [
   {path: 'registro', component: CrearRegistrosComponent},
   {path: 'lista', component: ListaRegistrosComponent},
   {path: 'detalle/:id', component: DetallesUserComponent},
-  {path: 'borrar/:id', component: CrearRegistrosComponent},
+  {path: 'update/:id', component: CrearRegistrosComponent},
 
 
 ];

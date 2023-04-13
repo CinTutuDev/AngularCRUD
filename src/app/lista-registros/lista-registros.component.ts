@@ -55,11 +55,11 @@ export class ListaRegistrosComponent implements OnInit {
         this.api.deleteRegistered(id)
           .subscribe({
             next: (res) => {
-              this.toastService.success({ detail: 'SUCCESS', summary: 'Deleted Successfully', duration: 3000 });
+              this.toastService.success({ detail: 'Éxito', summary: 'Borrado exitosamente', duration: 3000 });
               this.getUsers();
             },
             error: (err) => {
-              this.toastService.error({ detail: 'ERROR', summary: 'Something went wrong!', duration: 3000 });
+              this.toastService.error({ detail: 'Error', summary: '¡Algo salió mal!', duration: 3000 });
             }
           })
       },
