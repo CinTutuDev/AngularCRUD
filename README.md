@@ -105,7 +105,7 @@ import { NgConfirmModule } from 'ng-confirm-box';
             ],       
 ```
 ## Crear JSON Server
-* Installer
+* Installar de manera global
 ```
  npm i -g json-server
  ```
@@ -121,3 +121,14 @@ http://localhost:3000/posts
 ```
  ng g s services/api --skip-tests
  ```
+ 
+ ## Levantar app con servidor y base de datos
+ ```
+  json-server --watch db.json
+  ```
+  ```
+  ng s -o
+  ```
+  
+
+ 
